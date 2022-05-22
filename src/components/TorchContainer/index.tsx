@@ -2,20 +2,24 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 interface IProps {
-  className: string
-  style: object
-  children: JSX.Element
-  torchSize: number
-  bg: string
-  fg: string
-  torchColor: string
+  torchSize?: number
+  bg?: string
+  fg?: string
+  torchColor?: string
+  className?: string
+  style?: object
+  children?: React.ReactNode
+  onClick?: () => void
 }
 
 export const TorchContainer = ({
-  torchSize = 7,
+  torchSize = 4,
   bg = 'black',
   fg = 'white',
-  torchColor = 'rgba(0, 0, 0, 0.2) 0%',
+  torchColor = 'rgba(0, 0, 0, 0.2)',
+  style = {},
+  className = '',
+  onClick = () => {},
   children
 }: IProps) => {
   const [cursorX, setCursorX] = useState('50%')
@@ -35,6 +39,9 @@ export const TorchContainer = ({
       torchColor={torchColor}
       bg={bg}
       fg={fg}
+      style={style}
+      className={className}
+      onClick={onClick}
     >
       {children}
     </StyledTorchContainer>
