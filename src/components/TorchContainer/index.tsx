@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-interface IProps {
+interface IProps extends React.ComponentPropsWithoutRef<'div'> {
   torchSize?: number
   bg?: string
   fg?: string
   torchColor?: string
-  className?: string
-  style?: object
-  children?: React.ReactNode
-  onClick?: () => void
 }
 
 export const TorchContainer = ({
@@ -17,10 +13,7 @@ export const TorchContainer = ({
   bg = 'black',
   fg = 'white',
   torchColor = 'rgba(0, 0, 0, 0.2)',
-  style = {},
-  className = '',
-  onClick = () => {},
-  children
+  ...props
 }: IProps) => {
   const [cursorX, setCursorX] = useState('50%')
   const [cursorY, setCursorY] = useState('50%')
@@ -32,18 +25,16 @@ export const TorchContainer = ({
   return (
     // @ts-ignore
     <StyledTorchContainer
-      onMouseMove={handleMouseMove}
       cursorX={cursorX}
       cursorY={cursorY}
       torchSize={torchSize}
       torchColor={torchColor}
       bg={bg}
       fg={fg}
-      style={style}
-      className={className}
-      onClick={onClick}
+      {...props}
+      onMouseMove={handleMouseMove}
     >
-      {children}
+      {props.children}
     </StyledTorchContainer>
   )
 }
