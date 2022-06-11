@@ -44,4 +44,4 @@ const Template: ComponentStory<typeof TorchContainer> = (args) => (
   </TorchContainer>
 )
 
-export const Dark = Template.bind({})
+export const Basic = Template.bind({})
