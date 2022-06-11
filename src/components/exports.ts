@@ -1,1 +1,2 @@
-export {TorchContainer} from './TorchContainer';
+export { NeonGlowText } from './NeonGlowText'
+export { TorchContainer } from './TorchContainer'
