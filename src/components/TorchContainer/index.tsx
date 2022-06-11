@@ -3,16 +3,16 @@ import styled from 'styled-components'
 
 interface IProps {
   torchSize?: number
-  bg?: string
-  fg?: string
+  bgColor?: string
+  fgColor?: string
   torchColor?: string
   children: ReactNode
 }
 
 export const TorchContainer = ({
   torchSize = 4,
-  bg = 'black',
-  fg = 'white',
+  bgColor = 'black',
+  fgColor = 'white',
   torchColor = 'rgba(0, 0, 0, 0.2)',
   ...props
 }: IProps) => {
@@ -29,8 +29,8 @@ export const TorchContainer = ({
       cursorY={cursorY}
       torchSize={torchSize}
       torchColor={torchColor}
-      bg={bg}
-      fg={fg}
+      bgColor={bgColor}
+      fgColor={fgColor}
       {...props}
       onMouseMove={handleMouseMove}
     >
@@ -44,10 +44,10 @@ const StyledTorchContainer = styled.div<{
   torchColor: string
   cursorX: string
   cursorY: string
-  bg: string
-  fg: string
+  bgColor: string
+  fgColor: string
 }>`
-  color: ${(props) => props.fg};
+  color: ${(props) => props.fgColor};
   cursor: none;
   position: relative;
   background-color: black;
@@ -62,7 +62,7 @@ const StyledTorchContainer = styled.div<{
       circle ${(props) => props.torchSize}rem at ${(props) => props.cursorX}
         ${(props) => props.cursorY},
       ${(props) => props.torchColor} 0%,
-      ${(props) => props.bg} 100%
+      ${(props) => props.bgColor} 100%
     );
     z-index: 11;
   }
