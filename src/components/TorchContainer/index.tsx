@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { ReactNode, useState } from 'react'
 import styled from 'styled-components'
 
-interface IProps extends React.ComponentPropsWithoutRef<'div'> {
+interface IProps {
   torchSize?: number
   bg?: string
   fg?: string
   torchColor?: string
+  children: ReactNode
 }
 
 export const TorchContainer = ({
@@ -23,7 +24,6 @@ export const TorchContainer = ({
     setCursorY(e.clientY + 'px')
   }
   return (
-    // @ts-ignore
     <StyledTorchContainer
       cursorX={cursorX}
       cursorY={cursorY}
