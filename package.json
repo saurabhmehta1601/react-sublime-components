@@ -14,31 +14,30 @@
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
-    "prepare": "run-s build",
     "test": "run-s test:unit test:lint test:build",
-    "test:build": "run-s build",
     "test:lint": "eslint .",
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "release": "standard-version && npm publish",
-    "commit": "git cz"
-  },
-  "config": {
-    "commitizen": {
-      "path": "cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
+    "commit": "git cz",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "peerDependencies": {
     "react": "^16.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.2",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@storybook/addon-actions": "^6.5.8",
+    "@storybook/addon-essentials": "^6.5.8",
+    "@storybook/addon-interactions": "^6.5.8",
+    "@storybook/addon-links": "^6.5.8",
+    "@storybook/builder-webpack4": "^6.5.8",
+    "@storybook/manager-webpack4": "^6.5.8",
+    "@storybook/react": "^6.5.8",
+    "@storybook/testing-library": "^0.0.12",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -50,6 +49,7 @@
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
     "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.2.5",
     "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
